@@ -6,8 +6,12 @@
 
 ABall::ABall()
 {
- 
     PrimaryActorTick.bCanEverTick = true;
+
+    SceneComponent      = CreateDefaultSubobject<USceneComponent>("SceneComponent");
+    SetRootComponent(SceneComponent);
+    StaticMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>("StaticMeshComponent");
+    StaticMeshComponent->SetupAttachment(GetRootComponent());
 }
 
 
