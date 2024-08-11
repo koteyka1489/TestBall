@@ -6,7 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "Ball1.generated.h"
 
-class USphereComponent;
+class UStaticMeshComponent;
 class UProjectileMovementComponent;
 
 UCLASS()
@@ -23,7 +23,7 @@ protected:
 	virtual void BeginPlay() override;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Components")
-    USphereComponent* SphereComponent;
+    UStaticMeshComponent* StaticMeshComponent;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Components")
     UProjectileMovementComponent* MovementComponent;

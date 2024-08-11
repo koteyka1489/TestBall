@@ -10,12 +10,12 @@ ABall1::ABall1()
     // Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
     PrimaryActorTick.bCanEverTick = true;
 
-    SphereComponent = CreateDefaultSubobject<USphereComponent>("SphereComponent");
-    SphereComponent->InitSphereRadius(10.0f);
-    SetRootComponent(SphereComponent);
+    StaticMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>("StaticMeshComponent");
+
+    SetRootComponent(StaticMeshComponent);
 
     MovementComponent                   = CreateDefaultSubobject<UProjectileMovementComponent>("MovementComponent");
-    MovementComponent->UpdatedComponent = SphereComponent;
+    MovementComponent->UpdatedComponent = StaticMeshComponent;
 }
 
 // Called when the game starts or when spawned
