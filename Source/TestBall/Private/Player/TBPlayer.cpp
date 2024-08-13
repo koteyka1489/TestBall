@@ -4,6 +4,7 @@
 #include "Player/TBPlayer.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework\SpringArmComponent.h"
+#include "Components/SphereComponent.h"
 
 // Sets default values
 ATBPlayer::ATBPlayer()
@@ -17,6 +18,9 @@ ATBPlayer::ATBPlayer()
 
 	CameraComponent = CreateDefaultSubobject<UCameraComponent>("CameraComponent");
     CameraComponent->SetupAttachment(SpringArmComponent);
+
+
+   // SphereComponentHead = CreateDefaultSubobject<USphereComponent>("SphereComponent");
 
 }
 

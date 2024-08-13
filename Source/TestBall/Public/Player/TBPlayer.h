@@ -8,6 +8,7 @@
 
 class UCameraComponent;
 class USpringArmComponent;
+class USphereComponent;
 
 UCLASS()
 class TESTBALL_API ATBPlayer : public ACharacter
@@ -27,6 +28,8 @@ protected:
     UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
     UCameraComponent* CameraComponent;
 
+  //  UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
+   // USphereComponent* SphereComponentHead;
     
 
 public:
