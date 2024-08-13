@@ -28,9 +28,6 @@ protected:
     UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
     UCameraComponent* CameraComponent;
 
-  //  UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
-   // USphereComponent* SphereComponentHead;
-    
 
 public:
     virtual void Tick(float DeltaTime) override;
