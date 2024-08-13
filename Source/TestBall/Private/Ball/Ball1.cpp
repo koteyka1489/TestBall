@@ -2,6 +2,7 @@
 
 #include "Ball/Ball1.h"
 #include "Components\SphereComponent.h"
+#include "Components\TBStaticMeshComponent.h"
 #include "GameFramework\ProjectileMovementComponent.h"
 
 // Sets default values
@@ -10,12 +11,11 @@ ABall1::ABall1()
     // Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
     PrimaryActorTick.bCanEverTick = true;
 
-    StaticMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>("StaticMeshComponent");
+    StaticMeshComponent = CreateDefaultSubobject<UTBStaticMeshComponent>("StaticMeshComponent");
 
     SetRootComponent(StaticMeshComponent);
 
-    MovementComponent                   = CreateDefaultSubobject<UProjectileMovementComponent>("MovementComponent");
-    MovementComponent->UpdatedComponent = StaticMeshComponent;
+
 }
 
 // Called when the game starts or when spawned

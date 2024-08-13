@@ -8,6 +8,7 @@
 
 class UStaticMeshComponent;
 class UProjectileMovementComponent;
+class UTBStaticMeshComponent;
 
 UCLASS()
 class TESTBALL_API ABall1 : public AActor
@@ -23,10 +24,9 @@ protected:
 	virtual void BeginPlay() override;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Components")
-    UStaticMeshComponent* StaticMeshComponent;
+    UTBStaticMeshComponent* StaticMeshComponent;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Components")
-    UProjectileMovementComponent* MovementComponent;
+
 
 public:	
 	// Called every frame
