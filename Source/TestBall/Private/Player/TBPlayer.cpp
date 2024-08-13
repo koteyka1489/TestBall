@@ -2,12 +2,21 @@
 
 
 #include "Player/TBPlayer.h"
+#include "Camera/CameraComponent.h"
+#include "GameFramework\SpringArmComponent.h"
 
 // Sets default values
 ATBPlayer::ATBPlayer()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+
+    SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>("SpringArmComponent");
+    SpringArmComponent->SetupAttachment(GetRootComponent());
+    SpringArmComponent->bUsePawnControlRotation = true;
+
+	CameraComponent = CreateDefaultSubobject<UCameraComponent>("CameraComponent");
+    CameraComponent->SetupAttachment(SpringArmComponent);
 
 }
 
@@ -29,6 +38,20 @@ void ATBPlayer::Tick(float DeltaTime)
 void ATBPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
+    PlayerInputComponent->BindAxis("MoveForward", this, &ATBPlayer::MoveForward);
+    PlayerInputComponent->BindAxis("MoveRight", this, &ATBPlayer::MoveRight);
+    PlayerInputComponent->BindAxis("LookUp", this, &ATBPlayer::AddControllerPitchInput);
+    PlayerInputComponent->BindAxis("LookRight", this, &ATBPlayer::AddControllerYawInput);
 }
+
+void ATBPlayer::MoveForward(float Amount) 
+{
+    AddMovementInput(GetActorForwardVector(), Amount);
+}
+
+void ATBPlayer::MoveRight(float Amount) 
+{
+    AddMovementInput(GetActorRightVector(), Amount);
+}
+
 

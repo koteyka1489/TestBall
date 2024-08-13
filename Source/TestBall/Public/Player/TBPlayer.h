@@ -6,24 +6,36 @@
 #include "GameFramework/Character.h"
 #include "TBPlayer.generated.h"
 
+class UCameraComponent;
+class USpringArmComponent;
+
 UCLASS()
 class TESTBALL_API ATBPlayer : public ACharacter
 {
-	GENERATED_BODY()
+    GENERATED_BODY()
 
 public:
-	// Sets default values for this character's properties
-	ATBPlayer();
+    // Sets default values for this character's properties
+    ATBPlayer();
 
 protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+    virtual void BeginPlay() override;
 
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+    UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
+    USpringArmComponent* SpringArmComponent;
 
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+    UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
+    UCameraComponent* CameraComponent;
 
+    
+
+public:
+    virtual void Tick(float DeltaTime) override;
+
+    // Called to bind functionality to input
+    virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+private:
+    void MoveForward(float Amount);
+    void MoveRight(float Amount);
 };
